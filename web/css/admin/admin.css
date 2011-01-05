@@ -1,0 +1,22 @@
+.webdav_files { 
+  padding: 2px 10px; 
+  display: block;
+  background-color: #F2F2F2; 
+  color: #666;
+  text-decoration: none;
+  margin-right: 20em; 
+  margin-bottom: 1px; 
+  min-width: 300px; 
+}
+
+a.webdav_files:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.special_info .webdav_files {
+  background-color: #BDD0EF; 
+  text-decoration: underline;
+  color: #111;
+}
+

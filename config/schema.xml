@@ -1,0 +1,45 @@
+<table name="directory_permissions" phpName="DirectoryPermission">
+  <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true"/>
+  <column name="filename" type="varchar" size="256" required="true"/>
+  <column name="group_id" type="integer" required="true" primaryKey="true" />
+  <foreign-key foreignTable="groups" onDelete="cascade">
+    <reference local="group_id" foreign="id" />
+  </foreign-key>
+  <column name="created_by" type="integer" required="true" />
+  <foreign-key foreignTable="users">
+    <reference local="created_by" foreign="id" />
+  </foreign-key>
+  <column name="created_at" type="timestamp" />
+  <column name="updated_at" type="timestamp" /> 
+  <unique>
+    <unique-column name="group_id" />
+    <unique-column name="filename" />
+  </unique>
+</table>
+
+<table name="webdav_locks" phpName="WebdavLock">
+  <column name="token" type="varchar" size="255" required="true" primaryKey="true"/>
+  <column name="path" type="varchar" size="200"/>
+  <column name="owner" type="integer" required="true" />
+  <foreign-key foreignTable="users">
+    <reference local="owner" foreign="id" />
+  </foreign-key>
+  <column name="is_recursive" type="boolean" size="1" default="false" />
+  <column name="is_exclusive" type="boolean" size="1" default="false" />
+  <column name="created_at" type="timestamp" />
+  <column name="updated_at" type="timestamp" /> 
+  <column name="expires_at" type="timestamp" />
+</table>
+
+<table name="webdav_properties" phpName="WebdavPropery">
+  <column name="id" type="integer" required="true" autoIncrement="true" primaryKey="true"/>
+  <column name="path" type="varchar" size="255" required="true" default=""/>
+  <column name="name" type="varchar" size="60" required="true" default=""/>
+  <column name="ns" type="varchar" size="10" required="true" default="DAV:"/>
+  <column name="value" type="longvarchar" />
+  <unique>
+    <unique-column name="path" />
+    <unique-column name="name" />
+    <unique-column name="ns" />
+  </unique>
+</table>

@@ -1,0 +1,26 @@
+routing:
+  routes:
+    content:      'FrontendManager'
+    cms_manager:  'BackendManager'
+    get_file:     'FileManager'
+    get_ajax:     'FileManager'
+    cms_login:    'LoginManager'
+    goto:         'GotoManager'
+    datatransfer: 'WebdavManager'
+  default: 'content'
+
+webdav:
+  base_dir: datatransfer
+  # base_dir: ../subdomains/datatransfer/httpdocs/webdav
+  privileged_group: "datatransfer.*"
+  
+security:
+  generate_digest_secrets: true
+  
+    
+#on subdomain datatransfer
+  
+# routing:
+#   routes:
+#     dav:          'WebdavManager'
+#   default: 'dav'

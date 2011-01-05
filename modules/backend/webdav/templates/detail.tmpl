@@ -1,0 +1,27 @@
+<h1>{{module_info_link}} {{writeString=webdav.directory}}{{quoteString=\{\{name\}\};alternate=true;defaultValue=\{\{writeString=new_entry\}\}}}</h1>
+<form action="{{action}}" method="post">
+<fieldset>
+  <label for="file_path">{{writeString=webdav.dirname}}</label>
+  <input type="hidden" name="file_path_old" id="file_path_old" value="{{file_path_old}}"{{file_path_readonly}}/>
+  <input type="text" name="file_path" id="file_path" value="{{file_path}}"{{file_path_readonly}}/>{{writeFlashValue=file_path}}{{writeFlashValue=dirname_exists}}{{writeFlashValue=check_write_permissions}}
+</fieldset>
+<fieldset class="divider">
+  <label for="file_path">{{writeString=webdav.groups}}</label>
+  <select id="group_ids" name="group_ids[]" multiple="multiple">{{group_options}}</select>&nbsp;{{group_backend_link}}
+</fieldset>
+<fieldset class="divider nolegend">
+  <label>{{writeString=save}}</label>
+  <div class="grouped_items">
+    <button type="submit" title="{{writeString=save}}"></button>{{identifierContext=start;name=use_selected_tag_checkbox}}{{use_selected_tag_checkbox}}<label for="use_selected_tag">{{writeParameterizedString=link.tag_selected}}</label>{{identifierContext=end;name=use_selected_tag_checkbox}}
+  </div>
+</fieldset>
+</form>{{identifierContext=start;name=delete_button}}<fieldset class="divider">
+  {{delete_button}}
+</fieldset>{{identifierContext=end;name=delete_button}}
+{{detail_files}}
+{{identifierContext=start;name=server_address}}<fieldset class="divider special_info"><legend class="toggler open">{{writeString=webdav.directory_access_legend}}</legend>
+  <br />
+   <label>{{writeString=webdav.link_to_server}}</label><span class="highlight" style="display:inline-block;padding:2px 10px;">{{server_address}}</span>
+   <div class="form_message"></div>
+</fieldset>{{identifierContext=end;name=server_address}}
+{{users_with_permission}}

@@ -1,0 +1,7 @@
+enabled: true
+admin_required: true
+author: "Raphael Schweikert <rs@mini-cms.ch>"
+name: "WebDAV File Manager"
+description: "Manages a specified folder via WebDAV"
+website: "http://www.mini-cms.ch/"
+version: 1.0
